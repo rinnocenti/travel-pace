@@ -27,6 +27,5 @@
   ],
   "socket": true,
   "compatibleCoreVersion": "0.7.0",
-  "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
-  "download": "https://raw.githubusercontent.com/RealDeuce/torch/master/torch.zip"
+  "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json"
 }
