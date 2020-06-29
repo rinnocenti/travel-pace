@@ -1,0 +1,27 @@
+{
+  "TravelPace.ButtomName": "Ritimo de Viagem",
+  "TravelPace.RequestorName": "Calcular o Ritimo da Viagem",
+  "TravelPace.Pace": "Marcha",
+  "TravelPace.Dialog.Total": "Duração",
+  "TravelPace.Settings.ButtomName": "Barra Lateral: Ritimo de Viagem",
+  "TravelPace.Settings.ButtomNameHint": "Adiciona um botão na barra de ferramentas lateral apra medir o tempo de jornada do jogador",
+  "TravelPace.PaceSlow": "Marcha Lenta",
+  "TravelPace.PaceFast": "Marcha Rápida",
+  "TravelPace.PaceNormal": "Marcha Normal",
+  "TravelPace.Dialog.Who": "Calculou a próxima jornada.",
+  "TravelPace.Dialog.Journey": "{hour}h {min}min",
+  "TravelPace.Dialog.JourneyDay": " em {days} dia",
+  "TravelPace.Dialog.JourneyDays": " em {days} dias",
+  "TravelPace.Dialog.PreviewSpeed": "Movimento do grupo em pés",
+  "TravelPace.Dialog.PreviewOnroad": "Milhas em estrada / trilha",
+  "TravelPace.Dialog.PreviewOffroad": "Milhas em terreno dificil",
+  "TravelPace.Dialog.PreviewTime": "Horas Previstas",
+  "TravelPace.Dialog.SlowEffects": "Permite usar Furtividade",
+  "TravelPace.Dialog.FastEffects": "-5 de penalidade em testes de Sabedora passiva (Percepção)",
+
+  "TravelPace.Dialog.ForcedMarch": "Marcha Forçada",
+  "TravelPace.Dialog.ForcedMarchAlert": "O Ritimo de Viagem assume que os personagens viajam 8 horas em um dia. Eles podem ir além deste limite correndo o risco de exaustão.",
+  "TravelPace.Dialog.ForcedMarchAlertAdd": "Para cada hora adicional de viagem além de 8 horas, os personagens cobrem a distância para o seu ritmo, e cada personagem deve fazer um teste de resistência à Constituição no final de cada hora. O CD é 10 + 1 para cada hora após 8 horas. Em caso de falha, um personagem sofre um nível de exaustão.",
+  "TravelPace.Dialog.Narrative": "O grupo caminha em velocidade média de {marchSpeed} pés, passando por {marchOnRoad} milhas em estradas e {marchOnRoad} milhas em terreno dificil."
+
+}
