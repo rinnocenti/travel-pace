@@ -5,6 +5,8 @@
   "TravelPace.Dialog.Total": "Travel Time",
   "TravelPace.Settings.ButtomName": "Left Toolbar: Travel Pace",
   "TravelPace.Settings.ButtomNameHint": "Adds buttons to the left tool bar to measure time of Player's journey",
+  "TravelPace.Settings.ForcedMarchDialog": "Forced March on Chat",
+  "TravelPace.Settings.ForcedMarchDialogHint": "if Enable, Show info of March Forced rules on chat.",
 
   "TravelPace.PaceSlow": "Slow March",
   "TravelPace.PaceFast": "Fast March",

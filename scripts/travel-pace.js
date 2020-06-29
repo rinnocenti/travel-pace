@@ -28,13 +28,13 @@ class TravelPaceRequestor extends FormApplication {
     static get defaultOptions() {
         const options = super.defaultOptions;
         options.title = game.i18n.localize("TravelPace.RequestorName");
-        options.id = "TravelPace";
+        options.id = "travel-pace";
         options.template = "modules/travel-pace/templates/template.html";
         options.closeOnSubmit = true;
         options.popOut = true;
         options.width = 400;
         options.height = "auto";
-        options.classes = ["TravelPace", "travel-requestor"];
+        options.classes = ["travel-pace"];
         return options;
     }
     activateListeners(html) {
@@ -50,7 +50,7 @@ class TravelPaceRequestor extends FormApplication {
     setTravelPace(event, pace) {
         event.preventDefault();
         this.element.find("#pace").val(pace);
-        $("#travel-pace").submit();
+        $("#travel-pace-form").submit();
     }
     JourneyTime(speed, onroad, offroad, march, outDay = false) {
         let realDistance = ((onroad * 1) + (offroad * 2));
@@ -104,7 +104,8 @@ class TravelPaceRequestor extends FormApplication {
             marchType: marchType,
             dialogNarrative: dialogNarrative,
             marchTotal: marchTotal,
-            marchDisclaimer: marchDisclaimer
+            marchDisclaimer: marchDisclaimer,
+            chatForced: game.settings.get("travel-pace", "ForcedMarchDialog")
         };
         let flavor = "<h3>" + game.i18n.localize("TravelPace.Dialog.Who") + "</h3>";
         let content = await renderTemplate(templateChat, dialogData);

@@ -7,4 +7,12 @@ Hooks.once("init", () => {
         default: true,
         type: Boolean
     });
+    game.settings.register("travel-pace", "ForcedMarchDialog", {
+        name: game.i18n.localize('TravelPace.Settings.ForcedMarchDialog'),
+        hint: game.i18n.localize('TravelPace.Settings.ForcedMarchDialogHint'),
+        scope: "world",
+        config: true,
+        default: true,
+        type: Boolean
+    });
 });

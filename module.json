@@ -7,12 +7,11 @@
   "minimumCoreVersion": "0.6.2",
   "system": "dnd5e",
   "css": [
-    "./css/travelpace.css"
+    "./css/travel-pace.css"
   ],
   "scripts": [
     "./scripts/settings.js",
-    "./scripts/chatmessage.js",
-    "./scripts/travelpace.js"
+    "./scripts/travel-pace.js"
   ],
   "languages": [
     {
@@ -27,5 +26,7 @@
     }
   ],
   "socket": true,
-  "compatibleCoreVersion": "0.7.0"
+  "compatibleCoreVersion": "0.7.0",
+  "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
+  "download": "https://raw.githubusercontent.com/RealDeuce/torch/master/torch.zip"
 }

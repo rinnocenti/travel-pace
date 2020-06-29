@@ -5,6 +5,8 @@
   "TravelPace.Dialog.Total": "Duração",
   "TravelPace.Settings.ButtomName": "Barra Lateral: Ritimo de Viagem",
   "TravelPace.Settings.ButtomNameHint": "Adiciona um botão na barra de ferramentas lateral apra medir o tempo de jornada do jogador",
+  "TravelPace.Settings.ForcedMarchDialog": "Marcha Forçada no Chat",
+  "TravelPace.Settings.ForcedMarchDialogHint": "Se habilitado, exibe informações sobre a marcha forçada no chat",
   "TravelPace.PaceSlow": "Marcha Lenta",
   "TravelPace.PaceFast": "Marcha Rápida",
   "TravelPace.PaceNormal": "Marcha Normal",
