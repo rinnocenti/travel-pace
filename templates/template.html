@@ -1,17 +1,26 @@
 <form id="travel-pace-form" autocomplete="off" onsubmit="event.preventDefault();">
     <div id="travelpace-config">
-        <label class="corviva" for="jspeed">{{localize "TravelPace.Dialog.PreviewSpeed"}}</label>
-        <input type="number" id="jspeed" name="jspeed" value="30" /><br />
-        <label for="jmilesonroad">{{localize "TravelPace.Dialog.PreviewOnroad"}}</label>
-        <input type="number" id="jmilesonroad" name="jmilesonroad" value="10" /><br />
-        <label for="jmilesoffroad">{{localize "TravelPace.Dialog.PreviewOffroad"}}</label>
-        <input type="number" id="jmilesoffroad" name="jmilesoffroad" value="10" /><br />
+        <label class="corviva" for="jspeed">
+            <span>{{localize "TravelPace.Dialog.PreviewSpeed"}}</span>
+            <input type="number" id="jspeed" name="jspeed" value="30" />
+        </label>
+
+        <label for="jmilesonroad">
+            <span>{{localize "TravelPace.Dialog.PreviewOnroad"}}</span>
+            <input type="number" id="jmilesonroad" name="jmilesonroad" value="10" />
+        </label>
+        <label for="jmilesoffroad">
+            <span>{{localize "TravelPace.Dialog.PreviewOffroad"}}</span>
+            <input type="number" id="jmilesoffroad" name="jmilesoffroad" value="10" />
+        </label>
     </div>
     <div id="travelpace-preview">
         <h2>{{localize "TravelPace.Dialog.PreviewTime"}}</h2>
-        <p class="corviva"><strong>{{localize "TravelPace.PaceNormal"}} </strong><span id="march-normal" class="pw-march">{{pwNormal}}</span></pclass="corviva">
+        <p><strong>{{localize "TravelPace.PaceNormal"}} </strong><span id="march-normal" class="pw-march">{{pwNormal}}</span></p>
+        <hr />
         <p><strong>{{localize "TravelPace.PaceSlow"}} </strong><span id="march-slow" class="pw-march">{{pwSlow}}</span></p>
         <p><em> {{localize "TravelPace.Dialog.SlowEffects"}}</em></p>
+        <hr />
         <p><strong>{{localize "TravelPace.PaceFast"}} </strong><span id="march-fast" class="pw-march">{{pwQuick}}</span></p>
         <p><em> {{localize "TravelPace.Dialog.FastEffects"}}</em></p>
     </div>
@@ -20,10 +29,10 @@
         <p>{{localize "TravelPace.Dialog.ForcedMarchAlert"}}</p>
         <p>{{localize "TravelPace.Dialog.ForcedMarchAlertAdd"}}</p>
     </div>
-    <div class="travelpace-buttom">
+    <div id="travelpace-button">
         <input type="hidden" id="pace" name="pace" value="" />
-        <button type="submit" class="travelpace-slow-buttom" name="submit" value="Slow"><i class="fas fa-angle-double-right"></i>{{localize "TravelPace.PaceSlow"}}</button>
-        <button type="submit" class="travelpace-normal-buttom" name="submit" value="Normal"><i class="fa fa-play"></i>{{localize "TravelPace.PaceNormal"}}</button>
-        <button type="submit" class="travelpace-fast-buttom" name="submit" value="Fast"><i class="fa fa-forward"></i>{{localize "TravelPace.PaceFast"}}</button>
+        <button type="submit" class="travelpace-slow-button" name="submit" value="Slow"><i class="fas fa-angle-double-right"></i>{{localize "TravelPace.PaceSlow"}}</button>
+        <button type="submit" class="travelpace-normal-button" name="submit" value="Normal"><i class="fa fa-play"></i>{{localize "TravelPace.PaceNormal"}}</button>
+        <button type="submit" class="travelpace-fast-button" name="submit" value="Fast"><i class="fa fa-forward"></i>{{localize "TravelPace.PaceFast"}}</button>
     </div>
 </form>

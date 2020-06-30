@@ -43,9 +43,9 @@ class TravelPaceRequestor extends FormApplication {
         this.element.find("#jmilesonroad").change(this._onUserChange.bind(this));
         this.element.find("#jmilesoffroad").change(this._onUserChange.bind(this));
 
-        this.element.find(".travelpace-slow-buttom").click((event) => this.setTravelPace(event, 'Slow'));
-        this.element.find(".travelpace-normal-buttom").click((event) => this.setTravelPace(event, 'Normal'));
-        this.element.find(".travelpace-fast-buttom").click((event) => this.setTravelPace(event, 'Fast'))
+        this.element.find(".travelpace-slow-button").click((event) => this.setTravelPace(event, 'Slow'));
+        this.element.find(".travelpace-normal-button").click((event) => this.setTravelPace(event, 'Normal'));
+        this.element.find(".travelpace-fast-button").click((event) => this.setTravelPace(event, 'Fast'))
     }
     setTravelPace(event, pace) {
         event.preventDefault();
