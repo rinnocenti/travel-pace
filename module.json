@@ -27,5 +27,6 @@
   ],
   "socket": true,
   "compatibleCoreVersion": "0.7.0",
-  "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json"
+  "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
+  "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip"
 }
