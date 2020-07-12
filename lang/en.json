@@ -7,24 +7,37 @@
   "TravelPace.Settings.ButtomNameHint": "Adds buttons to the left tool bar to measure time of Player's journey",
   "TravelPace.Settings.ForcedMarchDialog": "Forced March on Chat",
   "TravelPace.Settings.ForcedMarchDialogHint": "if Enable, Show info of March Forced rules on chat.",
+  "TravelPace.Settings.MetricSystem": "Convert to Metric System",
+  "TravelPace.Settings.MetricSystemHint": "If enabled, the values will be converted to the metric system",
 
   "TravelPace.PaceSlow": "Slow March",
   "TravelPace.PaceFast": "Fast March",
   "TravelPace.PaceNormal": "Normal March",
+
+  "TravelPace.feets": "Feets",
+  "TravelPace.meters": "Metros",
+  "TravelPace.miles": "Miles",
+  "TravelPace.kilometers": "Kilometers",
+  "TravelPace.feetsAbbr": "ft",
+  "TravelPace.metersAbbr": "m",
+  "TravelPace.milesAbbr": "mi",
+  "TravelPace.kilometersAbbr": "km",
 
   "TravelPace.Dialog.Who": "Calculated the next journey.",
   "TravelPace.Dialog.Journey": "{hour}h {min}min",
   "TravelPace.Dialog.JourneyDay": " in {days} day",
   "TravelPace.Dialog.JourneyDays": " in {days} days",
 
-  "TravelPace.Dialog.PreviewSpeed": "Lowest group speed (fts)",
-  "TravelPace.Dialog.PreviewOnroad": "Miles on the road/trail",
-  "TravelPace.Dialog.PreviewOffroad": "Miles on difficult terrain",
+  "TravelPace.Dialog.PreviewSpeed": "Lowest group speed {units_feetAbbr}",
+  "TravelPace.Dialog.PreviewOnroad": "{units_miles} on the road/trail",
+  "TravelPace.Dialog.PreviewOffroad": "{units_miles} on difficult terrain",
   "TravelPace.Dialog.PreviewTime": "Estimated Hours",
   "TravelPace.Dialog.SlowEffects": "Able to use stealth",
   "TravelPace.Dialog.FastEffects": "-5 penalty to passive Wisdom (Perception) scores",
+
   "TravelPace.Dialog.ForcedMarch": "Forced March",
   "TravelPace.Dialog.ForcedMarchAlert": "The Travel Pace table assumes that characters travel for 8 hours in day. They can push on beyond that limit, at the risk of exhaustion.",
   "TravelPace.Dialog.ForcedMarchAlertAdd": "For each additional hour of travel beyond 8 hours, the characters cover the distance shown for their pace, and each character must make a Constitution saving throw at the end of the hour. The DC is 10 + 1 for each hour past 8 hours. On a failed saving throw, a character suffers one level of exhaustion.",
-  "TravelPace.Dialog.Narrative": "The group walks at an average speed of {marchSpeed} ft., passing for {marchOnRoad} miles on roads and {marchOnRoad} miles on difficult terrain."
+  "TravelPace.Dialog.Narrative": "The group walks at an average speed of {marchSpeed} {units_feetAbbr}, passing for {marchOnRoad} {units_miles} on roads and {marchOffRoad} {units_miles} on difficult terrain."
+
 }

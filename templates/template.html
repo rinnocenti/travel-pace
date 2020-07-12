@@ -1,17 +1,17 @@
 <form id="travel-pace-form" autocomplete="off" onsubmit="event.preventDefault();">
     <div id="travelpace-config">
         <label class="corviva" for="jspeed">
-            <span>{{localize "TravelPace.Dialog.PreviewSpeed"}}</span>
-            <input type="number" id="jspeed" name="jspeed" value="30" />
+            <span>{{previewSpeed}} </span>
+            <input type="number" id="jspeed" name="jspeed" value="{{previewSpeedVal}}" />
         </label>
 
         <label for="jmilesonroad">
-            <span>{{localize "TravelPace.Dialog.PreviewOnroad"}}</span>
-            <input type="number" id="jmilesonroad" name="jmilesonroad" value="10" />
+            <span>{{previewOnroad}}</span>
+            <input type="number" id="jmilesonroad" name="jmilesonroad" value="{{previewOnroadVal}}" />
         </label>
         <label for="jmilesoffroad">
-            <span>{{localize "TravelPace.Dialog.PreviewOffroad"}}</span>
-            <input type="number" id="jmilesoffroad" name="jmilesoffroad" value="10" />
+            <span>{{previewOffroad}}</span>
+            <input type="number" id="jmilesoffroad" name="jmilesoffroad" value="{{previewOffroadVal}}" />
         </label>
     </div>
     <div id="travelpace-preview">

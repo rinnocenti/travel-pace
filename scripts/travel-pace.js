@@ -53,6 +53,11 @@ class TravelPaceRequestor extends FormApplication {
         $("#travel-pace-form").submit();
     }
     JourneyTime(speed, onroad, offroad, march, outDay = false) {
+        if (game.settings.get("travel-pace", "MetricSystem") === true) {
+            speed = Math.round(speed / 0.3);
+            onroad = Math.round(onroad / 1.5);
+            offroad = Math.round(offroad / 1.5);
+        }
         let realDistance = ((onroad * 1) + (offroad * 2));
         let realSpeed = speed / 10;
         let total = realDistance / realSpeed;
@@ -74,11 +79,28 @@ class TravelPaceRequestor extends FormApplication {
         }
         return formatMeasure;
     }
+
+    formatMetricSystem() {
+        const metricSystem = game.settings.get("travel-pace", "MetricSystem");
+        let unitFeed = (metricSystem) ? game.i18n.localize("TravelPace.meters") : game.i18n.localize("TravelPace.feets");
+        let unitFeedAbbr = (metricSystem) ? game.i18n.localize("TravelPace.metersAbbr") : game.i18n.localize("TravelPace.feetsAbbr");
+        let unitMiles = (metricSystem) ? game.i18n.localize("TravelPace.kilometers") : game.i18n.localize("TravelPace.miles");
+        let unitMilesAbbr = (metricSystem) ? game.i18n.localize("TravelPace.kilometersAbbr") : game.i18n.localize("TravelPace.milesAbbr");
+        let medidas = [unitFeed, unitFeedAbbr, unitMiles, unitMilesAbbr];
+        return medidas;
+    }
     async getData() {
-        const pwNormal = this.JourneyTime(30, 10, 10, "Normal");
-        const pwSlow = this.JourneyTime(30, 10, 10, "Slow");
-        const pwQuick = this.JourneyTime(30, 10, 10, "Fast");
-        return { pwNormal, pwSlow, pwQuick }
+        let basemed = this.formatMetricSystem();
+        const previewSpeedVal = (game.settings.get("travel-pace", "MetricSystem")) ? 9 : 30;
+        const previewOnroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
+        const previewOffroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
+        const pwNormal = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Normal");
+        const pwSlow = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Slow");
+        const pwQuick = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Fast");
+        const previewSpeed = game.i18n.format("TravelPace.Dialog.PreviewSpeed", { units_feetAbbr: basemed[0] });
+        const previewOnroad = game.i18n.format("TravelPace.Dialog.PreviewOnroad", { units_miles: basemed[2] });
+        const previewOffroad = game.i18n.format("TravelPace.Dialog.PreviewOffroad", { units_miles: basemed[2] });
+        return { pwNormal, pwSlow, pwQuick, previewSpeed, previewOnroad, previewOffroad, previewSpeedVal, previewOnroadVal, previewOffroadVal }
     }
     _onUserChange() {
         let typeSpeed = this.element.find("#jspeed").val();
@@ -93,11 +115,14 @@ class TravelPaceRequestor extends FormApplication {
         //TODO: Fazer as mensagens do chat.
         //ui.notifications.warn('oi2');
         let speaker = ChatMessage.getSpeaker();
+        // Translate metric system
+        
+        let basemed = this.formatMetricSystem();
         if (!speaker.actor && game.user.character) speaker = ChatMessage.getSpeaker({ actor: game.user.character });
         let templateChat = "modules/travel-pace/templates/templateChat.html";
         let marchTotal = this.JourneyTime(formData["jspeed"], formData["jmilesonroad"], formData["jmilesoffroad"], formData["pace"], true);
         let marchDisclaimer = (formData["pace"] === 'Slow') ? game.i18n.localize("TravelPace.Dialog.SlowEffects") : (formData["pace"] === 'Fast') ? game.i18n.localize("TravelPace.Dialog.FastEffects"):"";
-        let dialogNarrative = game.i18n.format("TravelPace.Dialog.Narrative", { marchSpeed: formData["jspeed"], marchOnRoad: formData["jmilesonroad"], marchOffRoad: formData["jmilesoffroad"] });
+        let dialogNarrative = game.i18n.format("TravelPace.Dialog.Narrative", { units_miles: basemed[2], units_feetAbbr: basemed[1], marchSpeed: formData["jspeed"], marchOnRoad: formData["jmilesonroad"], marchOffRoad: formData["jmilesoffroad"] });
         let marchstring = "TravelPace.Pace" + formData["pace"]; 
         let marchType = game.i18n.localize(marchstring);
         let dialogData = {
