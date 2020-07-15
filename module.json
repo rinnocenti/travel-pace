@@ -3,7 +3,7 @@
   "title": "Travel Pace for D&D 5e",
   "description": "a simple module to calculate player's journey time in Travel Pace",
   "author": "Innocenti",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "minimumCoreVersion": "0.6.2",
   "system": "dnd5e",
   "styles": [
@@ -16,13 +16,18 @@
   "languages": [
     {
       "lang": "pt-BR",
-      "name": "Portugu�s (Brasil)",
+      "name": "Português (Brasil)",
       "path": "lang/pt-BR.json"
     },
     {
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
+    },
+    {
+      "lang": "es-ES",
+      "name": "Español",
+      "path": "lang/es-ES.json"
     }
   ],
   "socket": true,
