@@ -25,9 +25,9 @@
       "path": "lang/en.json"
     },
     {
-      "lang": "es-ES",
+      "lang": "es",
       "name": "Español",
-      "path": "lang/es-ES.json"
+      "path": "lang/es.json"
     }
   ],
   "socket": true,
