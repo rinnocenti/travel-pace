@@ -1,5 +1,5 @@
-![All Downloads](https://img.shields.io/github/downloads/rinnocenti/travel-pace/total?style=for-the-badge)
-![Latest Downloads](https://img.shields.io/github/downloads/rinnocenti/travel-pace/latest/total?style=for-the-badge)
+![GitHub All Releases](https://img.shields.io/github/downloads/rinnocenti/travel-pace/total)
+![GitHub Releases](https://img.shields.io/github/downloads/rinnocenti/travel-pace/0.2.1/total)
 # travel-pace
 A simple module that calculates the travel time for D&amp;D5e players. it's just a module I'm using to learn how to make modules for foundry.
 
