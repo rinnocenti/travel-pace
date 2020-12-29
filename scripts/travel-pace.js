@@ -42,6 +42,7 @@ class TravelPaceRequestor extends FormApplication {
         this.element.find("#jspeed").change(this._onUserChange.bind(this));
         this.element.find("#jmilesonroad").change(this._onUserChange.bind(this));
         this.element.find("#jmilesoffroad").change(this._onUserChange.bind(this));
+        this.element.find("#jratio").change(this._onUserChange.bind(this));
 
         this.element.find(".travelpace-slow-button").click((event) => this.setTravelPace(event, 'Slow'));
         this.element.find(".travelpace-normal-button").click((event) => this.setTravelPace(event, 'Normal'));
@@ -52,15 +53,15 @@ class TravelPaceRequestor extends FormApplication {
         this.element.find("#pace").val(pace);
         $("#travel-pace-form").submit();
     }
-    JourneyTime(speed, onroad, offroad, march, outDay = false) {
+    JourneyTime(speed, onroad, offroad, march, ratio = 1, outDay = false) {
         if (game.settings.get("travel-pace", "MetricSystem") === true) {
             speed = Math.round(speed / 0.3);
             onroad = Math.round(onroad / 1.5);
             offroad = Math.round(offroad / 1.5);
         }
-        let realDistance = ((onroad * 1) + (offroad * 2));
+        let realDistance = (onroad + (offroad * 2));
         let realSpeed = speed / 10;
-        let total = realDistance / realSpeed;
+        let total = realDistance / (realSpeed / ratio);        
         if (march === "Slow") {
             total = realDistance / (realSpeed / 3 * 2);
         } else if (march === "Fast") {
@@ -94,22 +95,24 @@ class TravelPaceRequestor extends FormApplication {
         const previewSpeedVal = (game.settings.get("travel-pace", "MetricSystem")) ? 9 : 30;
         const previewOnroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
         const previewOffroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
-        const pwNormal = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Normal");
-        const pwSlow = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Slow");
-        const pwQuick = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Fast");
+        const pwNormal = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Normal", 1);
+        const pwSlow = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Slow", 1);
+        const pwQuick = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Fast", 1);
         const previewSpeed = game.i18n.format("TravelPace.Dialog.PreviewSpeed", { units_feetAbbr: basemed[0] });
         const previewOnroad = game.i18n.format("TravelPace.Dialog.PreviewOnroad", { units_miles: basemed[2] });
         const previewOffroad = game.i18n.format("TravelPace.Dialog.PreviewOffroad", { units_miles: basemed[2] });
-        return { pwNormal, pwSlow, pwQuick, previewSpeed, previewOnroad, previewOffroad, previewSpeedVal, previewOnroadVal, previewOffroadVal }
+        const previewRatio = game.i18n.localize("TravelPace.Dialog.PreviewRatio");
+        return { pwNormal, pwSlow, pwQuick, previewSpeed, previewOnroad, previewOffroad, previewSpeedVal, previewOnroadVal, previewOffroadVal, previewRatio }
     }
     _onUserChange() {
         let typeSpeed = this.element.find("#jspeed").val();
         let typeOnRoad = this.element.find("#jmilesonroad").val();
         let typeOffRoad = this.element.find("#jmilesoffroad").val();
+        let typeRatio = this.element.find("#jratio").val();
 
-        $("#march-normal").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Normal"));
-        $("#march-slow").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Slow"));
-        $("#march-fast").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Fast"));
+        $("#march-normal").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Normal", typeRatio));
+        $("#march-slow").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Slow", typeRatio));
+        $("#march-fast").html(this.JourneyTime(typeSpeed, typeOnRoad, typeOffRoad, "Fast", typeRatio));
     }
     async _updateObject(event, formData) {
         //TODO: Fazer as mensagens do chat.
@@ -120,7 +123,7 @@ class TravelPaceRequestor extends FormApplication {
         let basemed = this.formatMetricSystem();
         if (!speaker.actor && game.user.character) speaker = ChatMessage.getSpeaker({ actor: game.user.character });
         let templateChat = "modules/travel-pace/templates/templateChat.html";
-        let marchTotal = this.JourneyTime(formData["jspeed"], formData["jmilesonroad"], formData["jmilesoffroad"], formData["pace"], true);
+        let marchTotal = this.JourneyTime(formData["jspeed"], formData["jmilesonroad"], formData["jmilesoffroad"], formData["pace"], formData["jratio"], true);
         let marchDisclaimer = (formData["pace"] === 'Slow') ? game.i18n.localize("TravelPace.Dialog.SlowEffects") : (formData["pace"] === 'Fast') ? game.i18n.localize("TravelPace.Dialog.FastEffects"):"";
         let dialogNarrative = game.i18n.format("TravelPace.Dialog.Narrative", { units_miles: basemed[2], units_feetAbbr: basemed[1], marchSpeed: formData["jspeed"], marchOnRoad: formData["jmilesonroad"], marchOffRoad: formData["jmilesoffroad"] });
         let marchstring = "TravelPace.Pace" + formData["pace"]; 
@@ -132,7 +135,7 @@ class TravelPaceRequestor extends FormApplication {
             marchDisclaimer: marchDisclaimer,
             chatForced: game.settings.get("travel-pace", "ForcedMarchDialog")
         };
-        let flavor = "<h3>" + game.i18n.localize("TravelPace.Dialog.Who") + "</h3>";
+        let flavor = "<h3>" + game.i18n.localize("TravelPace.Dialog.Who") + " (ratio: 1/" + formData["jratio"]+")</h3>";
         let content = await renderTemplate(templateChat, dialogData);
         let messageData = {
             content: content,

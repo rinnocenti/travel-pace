@@ -13,6 +13,11 @@
   "TravelPace.PaceSlow": "Marcha Lenta",
   "TravelPace.PaceFast": "Marcha Rápida",
   "TravelPace.PaceNormal": "Marcha Normal",
+  "TravelPace.RatioNormal": "Normal (SRD)",
+  "TravelPace.Ratio2": "1/2 Normal",
+  "TravelPace.Ratio4": "1/4 Normal",
+  "TravelPace.Ratio6": "1/6 (Icewind Dale: Rime of the Frostmaiden)",
+
 
   "TravelPace.feets": "Pés",
   "TravelPace.meters": "Metros",
@@ -31,6 +36,7 @@
   "TravelPace.Dialog.PreviewSpeed": "Movimento do grupo em {units_feetAbbr}",
   "TravelPace.Dialog.PreviewOnroad": "{units_miles} em estrada / trilha",
   "TravelPace.Dialog.PreviewOffroad": "{units_miles} em terreno dificil",
+  "TravelPace.Dialog.PreviewRatio": "Variação de Velocidade",
   "TravelPace.Dialog.PreviewTime": "Horas Previstas",
   "TravelPace.Dialog.SlowEffects": "Permite usar Furtividade",
   "TravelPace.Dialog.FastEffects": "-5 de penalidade em testes de Sabedora passiva (Percepção)",

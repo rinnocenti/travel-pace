@@ -13,6 +13,10 @@
   "TravelPace.PaceSlow": "Slow March",
   "TravelPace.PaceFast": "Fast March",
   "TravelPace.PaceNormal": "Normal March",
+  "TravelPace.RatioNormal": "Normal (SRD)",
+  "TravelPace.Ratio2": "1/2 Normal",
+  "TravelPace.Ratio4": "1/4 Normal",
+  "TravelPace.Ratio6": "1/6 (Icewind Dale: Rime of the Frostmaiden)",
 
   "TravelPace.feets": "Feets",
   "TravelPace.meters": "Metros",
@@ -32,6 +36,7 @@
   "TravelPace.Dialog.PreviewOnroad": "{units_miles} on the road/trail",
   "TravelPace.Dialog.PreviewOffroad": "{units_miles} on difficult terrain",
   "TravelPace.Dialog.PreviewTime": "Estimated Hours",
+  "TravelPace.Dialog.PreviewRatio": "Speed Ratio",
   "TravelPace.Dialog.SlowEffects": "Able to use stealth",
   "TravelPace.Dialog.FastEffects": "-5 penalty to passive Wisdom (Perception) scores",
 
