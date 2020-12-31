@@ -53,19 +53,20 @@ class TravelPaceRequestor extends FormApplication {
         this.element.find("#pace").val(pace);
         $("#travel-pace-form").submit();
     }
-    JourneyTime(speed, onroad, offroad, march, ratio = 1, outDay = false) {
+    JourneyTime(speed, onroad, offroad, march, ratio, outDay = false) {
+        //console.log(ratio);
         if (game.settings.get("travel-pace", "MetricSystem") === true) {
             speed = Math.round(speed / 0.3);
             onroad = Math.round(onroad / 1.5);
             offroad = Math.round(offroad / 1.5);
         }
-        let realDistance = (onroad + (offroad * 2));
-        let realSpeed = speed / 10;
-        let total = realDistance / (realSpeed / ratio);        
+        let realDistance = ((onroad * 1) + (offroad * 2));
+        let realSpeed = (speed / 10);
+        let total = (realDistance / realSpeed) * ratio;        
         if (march === "Slow") {
-            total = realDistance / (realSpeed / 3 * 2);
+            total = (realDistance / (realSpeed / 3 * 2)) * ratio;
         } else if (march === "Fast") {
-            total = realDistance / (realSpeed / 3 * 4);
+            total = (realDistance / (realSpeed / 3 * 4)) * ratio;
         }
         let formatMeasure = game.i18n.format("TravelPace.Dialog.Journey", { hour: Math.floor(total), min: Math.floor(((total * 60) % 60)) });
         //The Travel Pace table assumes that characters travel for 8 hours in day
