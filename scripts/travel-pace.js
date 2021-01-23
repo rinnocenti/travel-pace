@@ -7,7 +7,7 @@ class TravelPace {
                 name: "travel-pace",
                 title: game.i18n.localize('TravelPace.ButtomName'),
                 icon: "fa fa-location-arrow",
-                visible: game.settings.get("travel-pace", "toolbarTravelPace"),
+                visible: true,
                 onClick: () => TravelPace.requestMeasure()
             });
         }
