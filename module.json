@@ -2,9 +2,16 @@
   "name": "travel-pace",
   "title": "Travel Pace for D&D 5e",
   "description": "Calculate player's journey time in Travel Pace",
-  "author": "Innocenti",
-  "version": "1.0",
+  "version": "1.0.1",
   "minimumCoreVersion": "0.6.2",
+  "compatibleCoreVersion": "0.7.9",
+  "author": "Renato innocenti",
+  "authors": [
+    {
+      "name": "Innocenti",
+      "discord": "Innocenti#1455"
+    }
+  ],
   "system": "dnd5e",
   "styles": [
     "./styles/travel-pace.css"
@@ -30,9 +37,29 @@
       "path": "lang/es.json"
     }
   ],
+  "media": [
+    {
+      "type": "cover",
+      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/cover.png"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme01.jpg"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme02.jpg"
+    },
+    {
+      "type": "screenshot",
+      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme03.jpg"
+    }
+  ],
   "socket": true,
-  "compatibleCoreVersion": "0.7.9",
   "url": "https://github.com/rinnocenti/travel-pace",
   "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
-  "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip"
+  "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip",
+  "bugs": "https://github.com/rinnocenti/travel-pace/issues",
+  "readme": "https://github.com/rinnocenti/travel-pace/blob/master/README.md"
+
 }
