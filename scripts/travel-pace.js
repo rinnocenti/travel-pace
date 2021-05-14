@@ -22,7 +22,7 @@ class TravelPace {
 class TravelPaceRequestor extends FormApplication {
     constructor(...args) {
         super(...args)
-        game.users.apps.push(this)
+        game.users.apps.push(this);
     }
 
     static get defaultOptions() {
@@ -93,17 +93,27 @@ class TravelPaceRequestor extends FormApplication {
     }
     async getData() {
         let basemed = this.formatMetricSystem();
-        const previewSpeedVal = (game.settings.get("travel-pace", "MetricSystem")) ? 9 : 30;
-        const previewOnroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
-        const previewOffroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
-        const pwNormal = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Normal", 1);
-        const pwSlow = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Slow", 1);
-        const pwQuick = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Fast", 1);
+        let previewSetting = game.settings.get("travel-pace", "previewSetting");
+        let previewSpeedVal = (game.settings.get("travel-pace", "MetricSystem")) ? 9 : 30;
+        if (previewSetting.jspeed) previewSpeedVal = previewSetting.jspeed;
+        let previewOnroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
+        if (previewSetting.jmilesonroad) previewOnroadVal = previewSetting.jmilesonroad;
+        let previewOffroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
+        if (previewSetting.jmilesoffroad) previewOffroadVal = previewSetting.jmilesoffroad;
+        let r6Select = (previewSetting.jratio == "6") ? "selected" : "";
+        let r4Select = (previewSetting.jratio == "4") ? "selected" : "";
+        let r2Select = (previewSetting.jratio == "2") ? "selected" : "";
+        let rnSelect = (previewSetting.jratio == "1") ? "selected" : "";
+        let typeRatio = (previewSetting.jratio) ? previewSetting.jratio : 1;
+
+        const pwNormal = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Normal", typeRatio);
+        const pwSlow = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Slow", typeRatio);
+        const pwQuick = this.JourneyTime(previewSpeedVal, previewOnroadVal, previewOffroadVal, "Fast", typeRatio);
         const previewSpeed = game.i18n.format("TravelPace.Dialog.PreviewSpeed", { units_feetAbbr: basemed[0] });
         const previewOnroad = game.i18n.format("TravelPace.Dialog.PreviewOnroad", { units_miles: basemed[2] });
         const previewOffroad = game.i18n.format("TravelPace.Dialog.PreviewOffroad", { units_miles: basemed[2] });
         const previewRatio = game.i18n.localize("TravelPace.Dialog.PreviewRatio");
-        return { pwNormal, pwSlow, pwQuick, previewSpeed, previewOnroad, previewOffroad, previewSpeedVal, previewOnroadVal, previewOffroadVal, previewRatio }
+        return { pwNormal, pwSlow, pwQuick, previewSpeed, previewOnroad, previewOffroad, previewSpeedVal, previewOnroadVal, previewOffroadVal, previewRatio, rnSelect, r2Select, r4Select, r6Select }
     }
     _onUserChange() {
         let typeSpeed = this.element.find("#jspeed").val();
@@ -119,9 +129,11 @@ class TravelPaceRequestor extends FormApplication {
         //TODO: Fazer as mensagens do chat.
         //ui.notifications.warn('oi2');
         let speaker = ChatMessage.getSpeaker();
-        // Translate metric system
-        
+        // Translate metric system        
         let basemed = this.formatMetricSystem();
+        // preview value
+        game.settings.set("travel-pace", "previewSetting", { jspeed: formData["jspeed"], jmilesonroad: formData["jmilesonroad"], jmilesoffroad: formData["jmilesoffroad"], jratio: formData["jratio"]});
+
         if (!speaker.actor && game.user.character) speaker = ChatMessage.getSpeaker({ actor: game.user.character });
         let templateChat = "modules/travel-pace/templates/templateChat.html";
         let marchTotal = this.JourneyTime(formData["jspeed"], formData["jmilesonroad"], formData["jmilesoffroad"], formData["pace"], formData["jratio"], true);
@@ -146,5 +158,7 @@ class TravelPaceRequestor extends FormApplication {
         ChatMessage.create(messageData);
         console.log("Travel Pace submit: ", formData);
     }
+
+
 }
 Hooks.on('getSceneControlButtons', TravelPace.getSceneControlButtons);

@@ -12,7 +12,15 @@ Hooks.once("init", () => {
         hint: game.i18n.localize('TravelPace.Settings.MetricSystemHint'),
         scope: "world",
         config: true,
-        default: true,
+        default: false,
         type: Boolean
+    });
+    game.settings.register("travel-pace", "previewSetting", {
+        name: game.i18n.localize('TravelPace.Settings.previewSetting'),
+        hint: game.i18n.localize('TravelPace.Settings.previewSettingHint'),
+        default: {},
+        type: Object,
+        scope: 'world',
+        config: false
     });
 });

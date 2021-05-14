@@ -2,9 +2,9 @@
   "name": "travel-pace",
   "title": "Travel Pace for D&D 5e",
   "description": "Calculate player's journey time in Travel Pace",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.7.9",
+  "compatibleCoreVersion": "0.8.3",
   "author": "Renato innocenti",
   "authors": [
     {
