@@ -1,3 +1,7 @@
+v.2.0
+Update for Foundry 0.8.x;
+v 1.0:
+Realease for foundry 0.7.9
 v 0.3.0: added possibility of different speed ratios in accordance with the campaign or local.
 - Normal pace (3 unities per hour).
 - 1/2 (1.5 unities per hour)

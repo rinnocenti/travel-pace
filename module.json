@@ -1,10 +1,10 @@
 {
   "name": "travel-pace",
-  "title": "Travel Pace for D&D 5e",
+  "title": "Innocenti's Travel Pace",
   "description": "Calculate player's journey time in Travel Pace",
   "version": "2.0.0",
   "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.8.3",
+  "compatibleCoreVersion": "0.8.x",
   "author": "Renato innocenti",
   "authors": [
     {
@@ -60,6 +60,7 @@
   "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
   "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip",
   "bugs": "https://github.com/rinnocenti/travel-pace/issues",
-  "readme": "https://github.com/rinnocenti/travel-pace/blob/master/README.md"
+  "readme": "https://github.com/rinnocenti/travel-pace/blob/master/README.md",
+  "changelog": "https://github.com/rinnocenti/travel-pace/blob/master/CHANGELOG.md"
 
 }
