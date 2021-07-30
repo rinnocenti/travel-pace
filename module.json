@@ -2,9 +2,6 @@
   "name": "travel-pace",
   "title": "Innocenti's Travel Pace",
   "description": "Calculate player's journey time in Travel Pace",
-  "version": "1.0.0",
-  "minimumCoreVersion": "0.6.2",
-  "compatibleCoreVersion": "0.8.6",
   "author": "Renato innocenti",
   "authors": [
     {
@@ -13,13 +10,21 @@
       "email": "renato.innocenti@gmail.com"
     }
   ],
-  "system": "dnd5e",
-  "styles": [
-    "./styles/travel-pace.css"
-  ],
+  "url": "https://github.com/rinnocenti/travel-pace",
+  "readme": "https://github.com/rinnocenti/travel-pace/blob/master/README.md",
+  "bugs": "https://github.com/rinnocenti/travel-pace/issues",
+  "changelog": "https://github.com/rinnocenti/travel-pace/blob/master/CHANGELOG.md",
+  "flags": {},
+  "version": "1.0.0",
+  "minimumCoreVersion": "0.6.0",
+  "compatibleCoreVersion": "0.8.8",
   "scripts": [
     "./scripts/settings.js",
     "./scripts/travel-pace.js"
+  ],
+  "esmodules": [],
+  "styles": [
+    "./styles/travel-pace.css"
   ],
   "languages": [
     {
@@ -38,30 +43,14 @@
       "path": "lang/es.json"
     }
   ],
-  "media": [
-    {
-      "type": "cover",
-      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/cover.png"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme01.jpg"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme02.jpg"
-    },
-    {
-      "type": "screenshot",
-      "link": "https://github.com/rinnocenti/travel-pace/raw/master/img/readme03.jpg"
-    }
+  "packs": [],
+  "system": [
+    "dnd5e"
   ],
+  "dependencies": [],
   "socket": true,
-  "url": "https://github.com/rinnocenti/travel-pace",
   "manifest": "https://raw.githubusercontent.com/rinnocenti/travel-pace/master/module.json",
   "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip",
-  "bugs": "https://github.com/rinnocenti/travel-pace/issues",
-  "readme": "https://github.com/rinnocenti/travel-pace/blob/master/README.md",
-  "changelog": "https://github.com/rinnocenti/travel-pace/blob/master/CHANGELOG.md"
-
+  "protected": false,
+  "coreTranslation": false
 }
