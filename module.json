@@ -15,7 +15,7 @@
   "bugs": "https://github.com/rinnocenti/travel-pace/issues",
   "changelog": "https://github.com/rinnocenti/travel-pace/blob/master/CHANGELOG.md",
   "flags": {},
-  "version": "1.1.1",
+  "version": "1.1.2",
   "minimumCoreVersion": "0.6.0",
   "compatibleCoreVersion": "9",
   "scripts": [
