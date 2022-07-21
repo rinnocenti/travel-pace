@@ -1,5 +1,7 @@
 v.1.1.1: EN.lang update
+
 v.1.1.0: Final update
+
 v.0.5.0: Update for 0.8.6
 - Persistent values.
 - BREAKING: REINSTALL IS NECESSARY
