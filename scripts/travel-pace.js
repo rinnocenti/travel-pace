@@ -95,11 +95,11 @@ class TravelPaceRequestor extends FormApplication {
         let basemed = this.formatMetricSystem();
         let previewSetting = game.settings.get("travel-pace", "previewSetting");
         let previewSpeedVal = (game.settings.get("travel-pace", "MetricSystem")) ? 9 : 30;
-        if (previewSetting.jspeed) previewSpeedVal = previewSetting.jspeed;
+        if (previewSetting.jspeed != undefined) previewSpeedVal = previewSetting.jspeed;
         let previewOnroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
-        if (previewSetting.jmilesonroad) previewOnroadVal = previewSetting.jmilesonroad;
+        if (previewSetting.jmilesonroad != undefined) previewOnroadVal = previewSetting.jmilesonroad;
         let previewOffroadVal = (game.settings.get("travel-pace", "MetricSystem")) ? 5 : 3;
-        if (previewSetting.jmilesoffroad) previewOffroadVal = previewSetting.jmilesoffroad;
+        if (previewSetting.jmilesoffroad != undefined) previewOffroadVal = previewSetting.jmilesoffroad;
         let r6Select = (previewSetting.jratio == "6") ? "selected" : "";
         let r4Select = (previewSetting.jratio == "4") ? "selected" : "";
         let r2Select = (previewSetting.jratio == "2") ? "selected" : "";

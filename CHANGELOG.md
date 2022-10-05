@@ -1,3 +1,9 @@
+Updates
+
+v.1.1.3: Update save "0" values
+
+v.1.1.2: Update for V10 (work in v8,v9 and v10)
+
 v.1.1.1: EN.lang update
 
 v.1.1.0: Final update
