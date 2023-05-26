@@ -2,7 +2,7 @@
   "id": "travel-pace",
   "title": "Innocenti's Travel Pace",
   "description": "Calculate player's journey time in Travel Pace",
-  "version": "1.1.3",
+  "version": "2.1.3",
   "authors": [
     {
       "name": "Innocenti",
@@ -49,7 +49,7 @@
   "download": "https://github.com/rinnocenti/travel-pace/archive/master.zip",
   "compatibility": {
     "minimum": "9",
-    "verified": "10.286",
-    "maximum": "10"
+    "verified": "11.299",
+    "maximum": "11"
   }
 }
